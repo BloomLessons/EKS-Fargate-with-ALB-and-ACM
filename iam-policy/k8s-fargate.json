@@ -1,0 +1,122 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "VisualEditor0",
+			"Effect": "Allow",
+			"Action": [
+				"eks:ListAddons",
+				"eks:DescribeAddon*"
+			],
+			"Resource": "*"
+		},
+		{
+			"Sid": "VisualEditor1",
+			"Effect": "Allow",
+			"Action": [
+				"iam:Get*",
+				"iam:List*"
+			],
+			"Resource": "*"
+		},
+		{
+			"Sid": "VisualEditor2",
+			"Effect": "Allow",
+			"Action": [
+				"iam:UpdateAssumeRolePolicy",
+				"iam:DeleteAccessKey",
+				"iam:ListRoleTags",
+				"iam:UntagRole",
+				"iam:TagRole",
+				"iam:UpdateOpenIDConnectProviderThumbprint",
+				"iam:DeletePolicy",
+				"iam:CreateRole",
+				"iam:AttachRolePolicy",
+				"iam:PutRolePolicy",
+				"iam:CreateAccessKey",
+				"iam:PassRole",
+				"iam:DetachRolePolicy",
+				"iam:DeleteRolePolicy",
+				"iam:ListAttachedRolePolicies",
+				"iam:ListRolePolicies",
+				"iam:CreatePolicyVersion",
+				"iam:ListAccessKeys",
+				"iam:GetRole",
+				"iam:GetAccessKeyLastUsed",
+				"iam:DeleteRole",
+				"iam:UpdateRoleDescription",
+				"iam:UpdateAccessKey",
+				"iam:TagPolicy",
+				"iam:CreateOpenIDConnectProvider",
+				"iam:CreatePolicy",
+				"iam:CreateServiceLinkedRole",
+				"iam:UpdateRole",
+				"iam:DeleteServiceLinkedRole",
+				"iam:GetRolePolicy"
+			],
+			"Resource": [
+				"arn:aws:iam::YOURAWSACCOUNTID:policy/bloomlessons-*",
+				"arn:aws:iam::YOURAWSACCOUNTID:group/K8sFargate",
+				"arn:aws:iam::YOURAWSACCOUNTID:user/k8s-fargate",
+				"arn:aws:iam::YOURAWSACCOUNTID:oidc-provider/*",
+				"arn:aws:iam::YOURAWSACCOUNTID:role/bloomlessons-*"
+			]
+		},
+		{
+			"Sid": "VisualEditor3",
+			"Effect": "Allow",
+			"Action": "s3:ListBucket",
+			"Resource": "arn:aws:s3:::bloomlessons-tutorials-terraform-states"
+		},
+		{
+			"Sid": "VisualEditor4",
+			"Effect": "Allow",
+			"Action": [
+				"s3:PutObject",
+				"s3:GetObject"
+			],
+			"Resource": "arn:aws:s3:::bloomlessons-tutorials-terraform-states/k8s-fargate"
+		},
+		{
+			"Sid": "VisualEditor5",
+			"Effect": "Allow",
+			"Action": "eks:*",
+			"Resource": [
+				"arn:aws:eks:YOURAWSREGION:YOURAWSACCOUNTID:cluster/*",
+				"arn:aws:eks:YOURAWSREGION:YOURAWSACCOUNTID:identityproviderconfig/bloomlessons-*/*/*/*",
+				"arn:aws:eks:YOURAWSREGION:YOURAWSACCOUNTID:fargateprofile/bloomlessons-*/*/*",
+				"arn:aws:eks:YOURAWSREGION:YOURAWSACCOUNTID:access-entry/bloomlessons-*/*/*/*/*",
+				"arn:aws:eks:YOURAWSREGION:YOURAWSACCOUNTID:podidentityassociation/bloomlessons-*/*",
+				"arn:aws:eks:YOURAWSREGION:YOURAWSACCOUNTID:eks-anywhere-subscription/*",
+				"arn:aws:eks:YOURAWSREGION:YOURAWSACCOUNTID:addon/*/*/*",
+				"arn:aws:eks:YOURAWSREGION:YOURAWSACCOUNTID:nodegroup/bloomlessons-*/*/*"
+			],
+			"Condition": {
+				"StringLikeIfExists": {
+					"eks:clusterName": "bloomlessons-*"
+				}
+			}
+		},
+		{
+			"Sid": "VisualEditor6",
+			"Effect": "Allow",
+			"Action": "logs:*",
+			"Resource": [
+				"arn:aws:logs:YOURAWSREGION:YOURAWSACCOUNTID:log-group:*:*",
+				"arn:aws:logs:YOURAWSREGION:YOURAWSACCOUNTID:log-group:*"
+			]
+		},
+		{
+			"Sid": "VisualEditor7",
+			"Effect": "Allow",
+			"Action": "iam:ListRoles",
+			"Resource": [
+				"arn:aws:iam::YOURAWSACCOUNTID:policy/bloomlessons-*",
+				"arn:aws:iam::YOURAWSACCOUNTID:group/K8sFargate",
+				"arn:aws:iam::YOURAWSACCOUNTID:user/k8s-fargate",
+				"arn:aws:iam::YOURAWSACCOUNTID:oidc-provider/*",
+				"arn:aws:iam::YOURAWSACCOUNTID:role/bloomlessons-*"
+			]
+		}
+	]
+}

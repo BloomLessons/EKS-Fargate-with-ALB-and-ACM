@@ -1,0 +1,30 @@
+#### reference: https://github.com/aws/eks-charts/blob/master/stable/aws-load-balancer-controller/values.yaml
+replicaCount: 2
+revisionHistoryLimit: 10
+
+image:
+  repository: public.ecr.aws/eks/aws-load-balancer-controller
+  tag: v2.7.0
+  pullPolicy: IfNotPresent
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80
+
+serviceAccount:
+  create: true
+  annotations: { eks.amazonaws.com/role-arn: "arn:aws:iam::YOURAWSACCOUNTID:role/bloomlessons-lb-controller-role" }
+  name: ""
+  automountServiceAccountToken: true
+  imagePullSecrets:
+    # - name: docker
+
+clusterName: "bloomlessons-fargate-cluster"
+
+createIngressClassResource: true
+
+region: "YOURAWSREGION"
+
+vpcId: "vpc-YOURVPCID"
