@@ -4,7 +4,7 @@ Learn how to create a Kubernetes cluster on Amazon EKS using Terraform Infrastru
 
 This tutorial focuses on deploying a Fargate-based cluster, integrating an Application Load Balancer, and securing it with an Amazon ACM Certificate for TLS. 
 
-Watch the complete tutorial on the [BloomLessons YouTube Channel](https://www.youtube.com/channel/UCQs-Wfxvh3fR14tvfpBSj9Q). Don't forget to subscribe for more helpful content and to show your support!
+Watch the complete tutorial on the [BloomLessons YouTube Channel](https://www.youtube.com/channel/UCQs-Wfxvh3fR14tvfpBSj9Q). Jump straight to [the playlist here](https://www.youtube.com/playlist?list=PLM0KCx6YmWqILL-b7MdDx6rfKUpYe9KjU). Don't forget to subscribe for more helpful content and to show your support!
 
 ## The `iam-policy/` folder
 
